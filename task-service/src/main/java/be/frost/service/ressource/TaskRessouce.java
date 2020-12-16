@@ -46,5 +46,14 @@ public class TaskRessouce {
         return Response.status(Response.Status.OK).build();
     }
 
+    @Path("/{id}")
+    @DELETE
+    public Response deleteTask(@PathParam("id") int id){
+
+        Tasks.LIST_OF_TASKS.remove(Tasks.getTaskByID(id));
+
+        return Response.status(Response.Status.OK).build();
+    }
+
 
 }

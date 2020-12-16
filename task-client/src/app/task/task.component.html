@@ -1,0 +1,14 @@
+<div>
+  <div class="header">
+    <p class="title">
+      <label>
+        <input type="checkbox" [checked]="task.checked" class="filled-in" />
+        <span>{{task.title}}</span>
+      </label>
+    </p>
+    <p class="creationTime">
+      {{task.createdOn}}
+    </p>
+  </div>
+  <p class="content">{{task.content}}</p>
+</div>
