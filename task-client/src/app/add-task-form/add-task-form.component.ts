@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/model/task';
+import {TaskService} from '../../services/task.service';
+import {TaskChangeEventService} from '../../services/task-change-event.service';
 
 @Component({
   selector: 'app-add-task-form',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskFormComponent implements OnInit {
 
-  constructor() { }
+  title:string;
+
+  constructor(private taskService: TaskService) { }
+
+
 
   ngOnInit(): void {
+  }
+
+  addTask(){
+    let task = {
+      title: this.title,
+      content: ""
+    }
+    this.taskService.postTask(task).subscribe(x => {
+      TaskChangeEventService.tasks.next(x);
+    });
+
+    this.title = "";
   }
 
 }

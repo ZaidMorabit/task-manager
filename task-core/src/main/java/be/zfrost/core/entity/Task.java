@@ -3,6 +3,7 @@ package be.zfrost.core.entity;
 
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class Task {
 
@@ -10,8 +11,8 @@ public class Task {
     private int id;
     private String title;
     private String content;
-    private LocalDateTime createdOn;
-    private LocalDateTime checkedOn;
+    private Calendar createdOn;
+    private Calendar checkedOn;
 
     public Task() {
         this.id = this.lastID++;
@@ -37,19 +38,19 @@ public class Task {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedOn() {
+    public Calendar getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDateTime createdOn) {
+    public void setCreatedOn(Calendar createdOn) {
         this.createdOn = createdOn;
     }
 
-    public LocalDateTime getCheckedOn() {
+    public Calendar getCheckedOn() {
         return checkedOn;
     }
 
-    public void setCheckedOn(LocalDateTime checkedOn) {
+    public void setCheckedOn(Calendar checkedOn) {
         this.checkedOn = checkedOn;
     }
 }

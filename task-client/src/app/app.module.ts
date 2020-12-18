@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
 import { TaskComponent } from './task/task.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
     AddTaskFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

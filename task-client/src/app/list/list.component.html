@@ -1,4 +1,6 @@
-<div class="container">
-  <app-task *ngFor="let  of ">
-  </app-task>
-</div>
+<ul class="collection">
+  <li class="app-list" *ngFor="let task of tasks" class="collection-item">
+    <app-task (change)="onChange(task)" (delete)="onDelete(task)" [task]="task"></app-task>
+  </li>
+
+</ul>

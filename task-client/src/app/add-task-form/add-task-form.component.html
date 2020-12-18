@@ -1,1 +1,4 @@
-<p>add-task-form works!</p>
+<form class="form-add">
+  <input [(ngModel)]="title" name="title" type="text" placeholder="add item...">
+  <input class="hide" (click)="addTask()" type="submit">
+</form>

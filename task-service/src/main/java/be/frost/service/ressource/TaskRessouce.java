@@ -7,6 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Set;
 
 @Path("/task")
@@ -26,16 +27,16 @@ public class TaskRessouce {
     }
 
     @POST
-    public Response createTask(@FormParam("title") String title,
+    public Task createTask(@FormParam("title") String title,
                                @FormParam("content") String content){
         Task task = new Task();
         task.setTitle(title);
         task.setContent(content);
-        task.setCreatedOn(LocalDateTime.now());
+        task.setCreatedOn(Calendar.getInstance());
 
         Tasks.LIST_OF_TASKS.add(task);
 
-        return Response.status(Response.Status.CREATED).build();
+        return task;
     }
 
     @Path("/{id}")
@@ -48,12 +49,9 @@ public class TaskRessouce {
 
     @Path("/{id}")
     @DELETE
-    public Response deleteTask(@PathParam("id") int id){
-
-        Tasks.LIST_OF_TASKS.remove(Tasks.getTaskByID(id));
-
-        return Response.status(Response.Status.OK).build();
+    public Task deleteTask(@PathParam("id") int id){
+        Task task = Tasks.getTaskByID(id);
+        Tasks.LIST_OF_TASKS.remove(task);
+        return task;
     }
-
-
 }

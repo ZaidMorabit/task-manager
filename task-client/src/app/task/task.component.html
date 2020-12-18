@@ -1,14 +1,17 @@
-<div>
+<div class="box">
   <div class="header">
     <p class="title">
       <label>
-        <input type="checkbox" [checked]="task.checked" class="filled-in" />
+        <input type="checkbox" (change)="onChange()" [checked]="task.checked" class="filled-in" />
         <span>{{task.title}}</span>
       </label>
     </p>
+
     <p class="creationTime">
-      {{task.createdOn}}
+      {{task.createdOn | date:"medium"}}
+      <a (click)="onDelete()" class="waves-effect waves-light btn red lighten-1"><i class="material-icons">clear</i></a>
     </p>
   </div>
+
   <p class="content">{{task.content}}</p>
 </div>

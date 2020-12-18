@@ -1,6 +1,7 @@
 package be.zfrost.core.entity;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.HashSet;
 
 public class Tasks {
@@ -9,21 +10,21 @@ public class Tasks {
     //TO be deleted
     static{
         Task t = new Task();
-        t.setTitle("Title 1");
+        t.setTitle("Title 1 from server");
         t.setContent("some content...");
-        t.setCreatedOn(LocalDateTime.now());
+        t.setCreatedOn(Calendar.getInstance());
         LIST_OF_TASKS.add(t);
 
         t = new Task();
         t.setTitle("Title 2");
         t.setContent("some content2...");
-        t.setCreatedOn(LocalDateTime.now());
+        t.setCreatedOn(Calendar.getInstance());
         LIST_OF_TASKS.add(t);
 
         t = new Task();
         t.setTitle("Title 3");
         t.setContent("some content3...");
-        t.setCreatedOn(LocalDateTime.now());
+        t.setCreatedOn(Calendar.getInstance());
         LIST_OF_TASKS.add(t);
 
 
